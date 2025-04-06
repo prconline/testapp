@@ -31,8 +31,8 @@ export class SidenavResponsiveExampleComponent {
   private readonly _mobileQuery: MediaQueryList;
   private readonly _mobileQueryListener: () => void;
 
-  constructor() {
-    const media = inject(MediaMatcher);
+  constructor(private media : MediaMatcher  ) {
+    //const media = inject(MediaMatcher);
 
     this._mobileQuery = media.matchMedia('(max-width: 600px)');
     this.isMobile.set(this._mobileQuery.matches);
@@ -44,8 +44,10 @@ export class SidenavResponsiveExampleComponent {
     this._mobileQuery.removeEventListener('change', this._mobileQueryListener);
   }
 
-  protected readonly shouldRun = /(^|.)(stackblitz|webcontainer).(io|com)$/.test(
-    window.location.host,
-  );
+  // protected readonly shouldRun = /(^|.)(stackblitz|webcontainer).(io|com)$/.test(
+  //   window.location.host,
+  // );
+
+  protected readonly shouldRun =true;
 
 }
